@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+    <!--入门案例-->
+    <!--    <bean id="user" class="com.spring.User"></bean>-->
+
+    <!--使用set方法注入-->
+    <bean id="book" class="com.spring.Book">
+        <property name="bname">
+            <value><![CDATA[<<南京南京>>]]></value>
+        </property>
+        <property name="bauther" value="kc"></property>
+    </bean>
+
+    <!--使用有参数=构造注入-->
+    <bean id="orders" class="com.spring.Orders">
+        <constructor-arg name="oname" value="电脑"></constructor-arg>
+        <constructor-arg name="address" value="中国"></constructor-arg>
+    </bean>
+
+
+</beans>

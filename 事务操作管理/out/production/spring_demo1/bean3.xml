@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+<!--    <bean id="emp" class="com.spring.bean.Emp">-->
+<!--        &lt;!&ndash;两个普通属性注入&ndash;&gt;-->
+<!--        <property name="ename" value="lucy"></property>-->
+<!--        <property name="gender" value="girl"></property>-->
+<!--        &lt;!&ndash;对象类属性注入&ndash;&gt;-->
+<!--        <property name="dept">-->
+<!--            <bean id="dept" class="com.spring.bean.Dept">-->
+<!--                <property name="dname" value="安保部"></property>-->
+<!--            </bean>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+    <bean id="emp" class="com.spring.bean.Emp">
+        <!--两个普通属性注入-->
+        <property name="ename" value="lucy"></property>
+        <property name="gender" value="girl"></property>
+        <!--对象类属性注入-->
+        <property name="dept" ref="dept"></property>
+    </bean>
+
+    <bean id="dept" class="com.spring.bean.Dept">
+        <property name="dname" value="技术部"></property>
+    </bean>
+
+
+
+
+
+</beans>
