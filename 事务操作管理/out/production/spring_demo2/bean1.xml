@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="stu" class="com.spring.collectiontype.collectiontype.Stu">
+        <!--注入数组类型属性-->
+        <property name="courses">
+            <array>
+                <value>kobe bryant</value>
+                <value>kuang cheng</value>
+            </array>
+        </property>
+
+        <!--注入map类型属性-->
+        <property name="maps">
+            <map>
+                <entry key="JAVA" value="java"></entry>
+                <entry key="PHP" value="php"></entry>
+            </map>
+        </property>
+
+        <!--注入对象属性-->
+        <property name="courseList">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <!--创建多个course对象-->
+    <bean id="course1" class="com.spring.collectiontype.collectiontype.Course">
+        <property name="cname" value="java"></property>
+    </bean>
+
+    <bean id="course2" class="com.spring.collectiontype.collectiontype.Course">
+        <property name="cname" value="javaweb"></property>
+    </bean>
+</beans>
