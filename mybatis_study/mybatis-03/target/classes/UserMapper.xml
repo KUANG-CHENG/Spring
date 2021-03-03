@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF8" ?>
+    <!DOCTYPE mapper
+            PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+            "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.UserMapper">
+    <resultMap id="ResultMap" type="user">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="pwd" property="password"/>
+    </resultMap>
+    <!-- 查询 -->
+    <!-- resultType==返回类型 -->
+    <!-- id=接口类方法 -->
+    <select id="getUserList" resultMap="ResultMap">
+        select * from mybatis.user
+    </select>
+
+    <!-- 使用 RowBounds 实现分页-->
+    <select id="getUserRowBounds" resultMap="ResultMap">
+        select * from mybatis.user
+    </select>
+
+    <!-- 根据id号查询 -->
+    <select id="getUserById" resultMap="ResultMap" parameterType="int">
+        select * from mybatis.user where id = #{id}
+    </select>
+
+    <!-- 使用 Limit 实现分页查询 -->
+    <select id="getUserLimit" resultMap="ResultMap" parameterType="map">
+        select * from mybatis.user limit #{StartIndex}, #{PageSize}
+    </select>
+
+    <!-- 模糊查询 -->
+    <select id="getUserLike" resultType="com.pojo.User" parameterType="String">
+        select * from mybatis.user where name like "%"#{value}"%"
+    </select>
+
+    <!-- 插入 -->
+    <!--对象中的属性，可以直接取出来-->
+    <insert id="addUser" parameterType="com.pojo.User">
+        insert into mybatis.user (id, name, pwd) values (#{id},#{name},#{pwd});
+    </insert>
+
+    <!-- 使用map插入-->
+    <insert id="addUser2" parameterType="map">
+        insert into mybatis.user(id, name, pwd) values (#{Userid},#{Username},#{Userpwd})
+    </insert>
+
+    <!-- 更新 -->
+    <update id="updateUser" parameterType="com.pojo.User">
+        update mybatis.user set name=#{name},pwd=#{pwd} where id = #{id} ;
+    </update>
+
+    <!-- 删除 -->
+    <delete id="deleteUser" parameterType="int">
+        delete from mybatis.user where id = #{id}
+    </delete>
+</mapper>
