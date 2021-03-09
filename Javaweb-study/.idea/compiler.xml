@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="servlet-02" />
+        <module name="response" />
+        <module name="servlet-01" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="javaweb-01-servlet" target="8" />
+      <module name="Javaweb-study" target="8" />
+      <module name="response" target="1.7" />
+      <module name="servlet-01" target="1.7" />
+      <module name="servlet-02" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
