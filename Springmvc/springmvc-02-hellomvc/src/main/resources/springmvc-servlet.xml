@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 添加 处理映射器 -->
+    <!-- 根据url查找控制器 -->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+
+    <!-- 添加 处理器适配器 -->
+    <!-- 其按照特定的规则去执行Handler -->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter "/>
+
+    <!--视图解析器:DispatcherServlet给他的ModelAndView-->
+    <!-- 1.获取了 ModelAndView 的数据
+         2. 解析了 ModelAndView 的视图名字
+         3. 拼接视图名字，找到对应的视图 /WEB-INF/jsp/hello.jsp
+         4. 将数据渲染视图 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="InternalResourceViewResolver">
+        <!--前缀-->
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <!--后缀-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--Handler-->
+    <!-- 注册HelloController -->
+    <bean id="/hello" class="com.controller.HelloController"/>
+
+</beans>
