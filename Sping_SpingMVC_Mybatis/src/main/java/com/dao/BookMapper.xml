@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 定义接口类 -->
+<mapper namespace="com.dao.BookMapper">
+
+    <!--增加一个Book-->
+    <insert id="addBook" parameterType="Books">
+        insert into mybatis.books(bookName,bookCounts,details)
+        values (#{bookName}, #{bookCounts}, #{details})
+    </insert>
+
+    <!--根据id删除一个Book-->
+    <delete id="deleteBookById" parameterType="int">
+        delete from mybatis.books where bookID=#{bookID}
+    </delete>
+
+    <!--更新Book-->
+    <update id="updateBook" parameterType="Books">
+        update mybatis.books
+        set bookName = #{bookName},bookCounts = #{bookCounts},details = #{details}
+        where bookID = #{bookID}
+    </update>
+
+    <!--根据id查询,返回一个Book-->
+    <select id="queryBookById" resultType="Books">
+        select * from mybatis.books
+        where bookID = #{bookID}
+    </select>
+
+    <!--查询全部Book-->
+    <select id="queryAllBook" resultType="Books">
+        SELECT * from mybatis.books
+    </select>
+
+    <!-- 根据书名查询，返回一个Book -->
+    <select id="queryBookByName" resultType="Books">
+        select * from mybatis.books
+        where bookName = #{bookName}
+    </select>
+
+</mapper>
